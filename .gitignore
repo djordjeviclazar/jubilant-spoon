@@ -131,3 +131,6 @@ dmypy.json
 # Data
 Fruit360_Org/Data/
 output_files/
+tmp/
+data/*/Test
+data/*/Training
