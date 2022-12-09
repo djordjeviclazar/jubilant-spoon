@@ -56,7 +56,7 @@ reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_sparse_categorical
 csv_logger = tf.keras.callbacks.CSVLogger(os.path.join(model_path, 'fine_tuning.csv'))
 
 hist = model.fit(train_data_x, train_data_y, batch_size=batch_size_ft,
-                 epochs=25,
+                 epochs=50,
                  validation_data=(validation_data_x, validation_data_y),
                  callbacks=[save_model, early_stopping, reduce_lr, csv_logger],
                  verbose=1)

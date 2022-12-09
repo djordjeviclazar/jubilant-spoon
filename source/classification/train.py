@@ -27,7 +27,8 @@ tf.compat.v1.disable_eager_execution()
 
 input_shape = (image_size, image_size, 3)
 
-(train_data_x_pp, validation_data_x_pp, model) = get_model(train_data_x, validation_data_x, input_shape, trainable_encoder=False)
+#(train_data_x_pp, validation_data_x_pp, model) = get_model(train_data_x, validation_data_x, input_shape, trainable_encoder=False)
+model = get_custom_model(input_shape)
 
 model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=init_lr),
               loss=tf.keras.losses.sparse_categorical_crossentropy,
@@ -59,7 +60,7 @@ reduce_lr = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_sparse_categorical
 csv_logger = tf.keras.callbacks.CSVLogger(os.path.join(model_tmp_folder, 'training.csv'))
 
 hist = model.fit(train_data_x, train_data_y, batch_size=batch_size,
-                     epochs=3,
+                     epochs=50,
                      validation_data=(validation_data_x, validation_data_y),
                      callbacks=[save_model, early_stopping, reduce_lr, csv_logger],
                      verbose=2)

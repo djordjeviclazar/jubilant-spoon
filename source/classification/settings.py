@@ -31,4 +31,4 @@ init_lr_ft = 1e-5
 early_stopping_patience = 30
 reduce_lr_patience = 5
 
-model_name = 'resnet50'
+model_name = 'D5'#resnet50

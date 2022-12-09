@@ -44,6 +44,7 @@ model.summary()
 #res_train = model.evaluate(x_train, y_train, batch_size=batch_size, verbose=0)
 res_test = model.evaluate(test_data_x, test_data_y, batch_size=batch_size, verbose=0)
 #print(res_train)
+print(model.metrics_names)
 print(res_test)
 
 y_out = model.predict(test_data_x, batch_size=batch_size)
