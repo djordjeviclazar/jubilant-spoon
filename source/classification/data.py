@@ -23,7 +23,7 @@ class DataProvider(tf.keras.utils.Sequence):
 
         for i in range(len(batch_images)):
             img_path, classIndex = batch_images[i]
-            img = cv.imread(img_path)
+            img = getImg_RGB(img_path)
             img = cv.resize(img, (image_size, image_size), interpolation=cv.INTER_LINEAR)
             batch_x[i] = img
             batch_y[i] = classIndex
@@ -95,8 +95,8 @@ def getTrainData():
         imagesList = os.listdir(testClassPath)
         for imageName in imagesList:
             img_path = os.path.join(testClassPath, imageName)
-            img = cv.imread(img_path)
-            img = cv.resize(img, (image_size, image_size), interpolation=cv.INTER_LINEAR)
+            img = getImg_RGB(img_path)
+            #img = cv.resize(img, (image_size, image_size), interpolation=cv.INTER_LINEAR)
             if cnt % 5 == 2:
                 validation_data_x.append(img)
                 validation_data_y.append(classes_list.index(classFolder))
@@ -132,8 +132,8 @@ def getTestData():
         imagesList = os.listdir(testClassPath)
         for imageName in imagesList:
             img_path = os.path.join(testClassPath, imageName)
-            img = cv.imread(img_path)
-            img = cv.resize(img, (image_size, image_size), interpolation=cv.INTER_LINEAR)
+            img = getImg_RGB(img_path)
+            #img = cv.resize(img, (image_size, image_size), interpolation=cv.INTER_LINEAR)
             test_data_x.append(img)
             test_data_y.append(classes_list.index(classFolder))
     # result
@@ -141,3 +141,6 @@ def getTestData():
     print('Test elements = ' + str(len(test_data_x)))
 
     return (np.asarray(test_data_x), np.asarray(test_data_y))
+
+def getImg_RGB(path):
+    return cv.cvtColor(cv.imread(path), cv.COLOR_BGR2RGB)
