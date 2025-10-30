@@ -65,7 +65,7 @@ def getDataProviders(batch_size): # returns tuple (training_data, training_val_d
     
     # Shuffle train data
     train_data = np.random.RandomState(0).permutation(train_data)
-    validation_data = np.random.permutation(validation_data)
+    validation_data = np.random.RandomState(0).permutation(validation_data)
 
     # result
     print('Train elements = ' + str(len(train_data)))
@@ -128,7 +128,7 @@ def getTestData():
     test_data_x = []
     test_data_y = []
     for classFolder in classes_list:
-        testClassPath = os.path.join(train_folder, classFolder)
+        testClassPath = os.path.join(test_folder, classFolder)
         imagesList = os.listdir(testClassPath)
         for imageName in imagesList:
             img_path = os.path.join(testClassPath, imageName)

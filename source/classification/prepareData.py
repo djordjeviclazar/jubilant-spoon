@@ -1,10 +1,10 @@
 import os
 import shutil
 
-def copyData(sourceDir, destDir, angle=10):
+def copyData(sourceDir, destDir, angle=1):
 
     invalidFiles = 0
-    foldersToCopy = ['Training', 'Test']
+    foldersToCopy = ['Training']#, 'Test'
     for folder in foldersToCopy:
         folderPath = os.path.join(sourceDir, folder)
 
@@ -53,3 +53,28 @@ def copyData(sourceDir, destDir, angle=10):
 if True:
     from settings import *
     copyData(sourceDir=sourceImages, destDir=data_folder)
+
+def copy_data_with_augmentation(sourceDir, destDir, angle=5):
+    pass
+
+
+def apply_scale(scale = 1):
+    pass
+
+def apply_rotation(angle = 0):
+    pass
+
+def apply_translation(percent = 10):
+    pass
+
+def apply_dark_box(size_percent = 0.125):
+    pass
+
+def apply_salt_and_pepper(ratio = 0.0):
+    pass
+
+def apply_gaussian_noise():
+    pass
+
+# Test
+test_file = 'C:/Users/djord/NotSyncFolder/Repos/Master/DL/archive/fruits-360_dataset/fruits-360/Training/Plum/1_100.jpg'
