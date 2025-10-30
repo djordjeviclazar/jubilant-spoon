@@ -1,10 +1,10 @@
 import os
 import shutil
 
-def copyData(sourceDir, destDir, angle=10):
+def copyData(sourceDir, destDir, angle=1):
 
     invalidFiles = 0
-    foldersToCopy = ['Training', 'Test']
+    foldersToCopy = ['Training']#, 'Test'
     for folder in foldersToCopy:
         folderPath = os.path.join(sourceDir, folder)
 
@@ -50,7 +50,7 @@ def copyData(sourceDir, destDir, angle=10):
             print(classFolder + '\n')
     print('Invalid files: ' + str(invalidFiles))
 
-if False:
+if True:
     from settings import *
     copyData(sourceDir=sourceImages, destDir=data_folder)
 
