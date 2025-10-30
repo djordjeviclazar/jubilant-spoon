@@ -129,8 +129,9 @@ dmypy.json
 .pyre/
 
 # Data
-Fruit360_Org/Data/
+#Fruit360_Org/Data/
 output_files/
 tmp/
+old_tmp_test/
 **/data/**/Test
 **/data/**/Training
